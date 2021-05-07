@@ -8,7 +8,7 @@ var launcher2;
 var refree,refreeImg;
 var Play;
 var Start;
-var rand;
+var angle =0;
 
 function preload(){
 stadiumImg = loadImage("images/Stadium.jfif");
@@ -41,6 +41,7 @@ var vault = createSprite(windowWidth/25,250,20,40)
 vault.addImage(vaultImg);
 vault.scale =1;
 //vault.velocityX=3;
+angleMode(DEGREES);
 }
 
 function draw(){
@@ -63,21 +64,31 @@ text("Score-",windowWidth-100,60);
 textSize(27);
 fill(224, 35, 35);
 text("Score-",windowWidth-1532,60);
-var sp = Math.random(1,19)
+var sp = Math.random(1,50)
 
-if (frameCount>300 && frameCount<305){
+if (frameCount>300 && frameCount<302){
 var valtriake = createSprite(windowWidth/8,250,25,25)
+
+//valtriake.rotation=0;
+imageMode(CENTER);
 valtriake.addImage(babImg);
 valtriake.scale = 0.4;
-if(sp < 5){
-valtriake.velocityX = 4 ;
-}
-else if(sp>5){
-  valtriake.velocityX = 8 ; 
-}
+
+  valtriake.rotationSpeed = 6;
+  valtriake.setSpeed = (random(12),random(360));
+
+valtriake.rotation += valtriake.rotationSpeed ;
+
+  valtriake.velocityX = 5 ; 
+
 var Akenies = createSprite(windowWidth-160,250,25,25)
+imageMode(CENTER);
 Akenies.addImage(akeniesImg);
 Akenies.scale = 0.4;
+Akenies.rotationSpeed = 6;
+Akenies.setSpeed = (random(12),random(360));
+
+Akenies.rotation += valtriake.rotationSpeed ;
 Akenies.velocityX = -6;
 
 
